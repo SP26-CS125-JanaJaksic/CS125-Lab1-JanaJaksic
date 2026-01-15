@@ -38,6 +38,22 @@ class BankAccount:
     # 1. transfer(self, amount, other_account) - transfers money to another account
     # 2. apply_interest(self, rate) - adds interest to the balance
     #
+    def transfer(self,amount,other_account):
+        """Transfer money from one account to another"""
+        if amount > self.balance:
+            return "Insufficient funds for transfer."
+
+        self.balance -= amount
+        other_account.balance += amount
+        return f"Transferred ${amount} to {other_account.owner}. New balance: ${self.balance}"
+
+    def apply_interest (self, rate):
+        "Applies an interest rate to the account balance"
+        interest = self.balance * rate
+        self.balance += interest
+        return f"Interest applied at {rate*100}%. New balance: ${self.balance}"
+
+
 
 
 # DEMONSTRATION
@@ -65,12 +81,14 @@ print(account2.get_info())
 # Once you've created your two methods above, test them here!
 # Example calls (uncomment after implementing):
 #
-# print("\nTesting transfer method:")
-# print(account1.transfer(100, account2))
-# print(account1.get_info())
-# print(account2.get_info())
-#
-# print("\nTesting apply_interest method:")
-# print(account1.apply_interest(0.05))  # 5% interest
-# print(account1.get_info())
-#
+print("\nTesting transfer method:")
+print(account1.transfer(100, account2))
+print(account1.get_info())
+print(account2.get_info())
+
+print("\nTesting apply_interest method:")
+print(account1.apply_interest(0.05))  # 5% interest
+print(account1.get_info())
+
+print(account2.apply_interest(0.05))  # 5% interest
+print(account2.get_info())
