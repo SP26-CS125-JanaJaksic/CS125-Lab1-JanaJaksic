@@ -1,5 +1,5 @@
 """
-Name: Zach Wilson
+Name: Jana Jaksic
 Date: 1/15/2026
 Course: CS 125
 Simple OOP Demo - Covers all key concepts in ~50 lines
